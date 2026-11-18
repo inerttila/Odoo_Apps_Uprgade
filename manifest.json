@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Odoo One-Click Upgrade",
+  "version": "1.0.0",
+  "description": "Upgrade the Odoo module for the current backend view with one click. By Inert Tila — https://github.com/inerttila",
+  "author": "Inert Tila",
+  "homepage_url": "https://inert.netlify.app",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/content.js"],
+      "css": ["src/ui.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["src/page.js"],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Odoo One-Click Upgrade",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  }
+}

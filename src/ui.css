@@ -1,0 +1,305 @@
+#odoo-oneclick-upgrade-root {
+  all: initial;
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 2147483646;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  line-height: 1.35;
+  color: #1a1a1a;
+  pointer-events: none;
+}
+
+#odoo-oneclick-upgrade-root.is-placed {
+  right: auto;
+}
+
+#odoo-oneclick-upgrade-root.is-dragging {
+  user-select: none;
+}
+
+#odoo-oneclick-upgrade-root.is-dragging .oou-bar {
+  cursor: grabbing;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+#odoo-oneclick-upgrade-root * {
+  box-sizing: border-box;
+}
+
+#odoo-oneclick-upgrade-root .oou-panel {
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+#odoo-oneclick-upgrade-root .oou-bar {
+  display: flex;
+  align-items: stretch;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+  background: #714b67;
+  color: #fff;
+  cursor: grab;
+  touch-action: none;
+}
+
+#odoo-oneclick-upgrade-root .oou-main,
+#odoo-oneclick-upgrade-root .oou-toggle {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: inherit;
+  font: inherit;
+  padding: 10px 14px;
+}
+
+#odoo-oneclick-upgrade-root .oou-main {
+  font-weight: 600;
+  max-width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#odoo-oneclick-upgrade-root .oou-main:hover,
+#odoo-oneclick-upgrade-root .oou-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+#odoo-oneclick-upgrade-root .oou-toggle {
+  border-left: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 10px 12px;
+  min-width: 36px;
+}
+
+#odoo-oneclick-upgrade-root .oou-bar.is-loading,
+#odoo-oneclick-upgrade-root .oou-bar.is-disabled {
+  opacity: 0.72;
+}
+
+#odoo-oneclick-upgrade-root .oou-bar.is-loading .oou-main,
+#odoo-oneclick-upgrade-root .oou-bar.is-disabled .oou-main,
+#odoo-oneclick-upgrade-root .oou-bar.is-loading .oou-toggle,
+#odoo-oneclick-upgrade-root .oou-bar.is-disabled .oou-toggle {
+  cursor: default;
+}
+
+#odoo-oneclick-upgrade-root .oou-picker {
+  position: absolute;
+  right: 0;
+  width: min(320px, calc(100vw - 16px));
+  max-height: min(360px, calc(100vh - 24px));
+  overflow: auto;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  padding: 12px;
+  display: none;
+  z-index: 2;
+}
+
+#odoo-oneclick-upgrade-root .oou-picker.is-open {
+  display: block;
+}
+
+#odoo-oneclick-upgrade-root .oou-picker.oou-place-below {
+  top: calc(100% + 8px);
+  bottom: auto;
+}
+
+#odoo-oneclick-upgrade-root .oou-picker.oou-place-above {
+  bottom: calc(100% + 8px);
+  top: auto;
+}
+
+#odoo-oneclick-upgrade-root .oou-picker h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #333;
+}
+
+#odoo-oneclick-upgrade-root .oou-hint {
+  margin: 0 0 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+#odoo-oneclick-upgrade-root .oou-list {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  max-height: 180px;
+  overflow: auto;
+}
+
+#odoo-oneclick-upgrade-root .oou-list li button {
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  background: #f7f5f6;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  font: inherit;
+  color: #222;
+}
+
+#odoo-oneclick-upgrade-root .oou-list li button:hover {
+  border-color: #714b67;
+  background: #f3eef2;
+}
+
+#odoo-oneclick-upgrade-root .oou-list li button.is-selected,
+#odoo-oneclick-upgrade-root .oou-list li button.is-active {
+  border-color: #714b67;
+  background: #efe6ed;
+  font-weight: 600;
+}
+
+#odoo-oneclick-upgrade-root .oou-list .oou-reason {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 400;
+  color: #777;
+}
+
+#odoo-oneclick-upgrade-root .oou-manual {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+#odoo-oneclick-upgrade-root .oou-manual input {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font: inherit;
+}
+
+#odoo-oneclick-upgrade-root .oou-manual input:focus {
+  outline: none;
+  border-color: #714b67;
+  box-shadow: 0 0 0 2px rgba(113, 75, 103, 0.18);
+}
+
+#odoo-oneclick-upgrade-root .oou-manual button {
+  border: 0;
+  border-radius: 6px;
+  background: #714b67;
+  color: #fff;
+  padding: 8px 12px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+#odoo-oneclick-upgrade-root .oou-toast {
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  max-width: 320px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #1f1f1f;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 3;
+}
+
+#odoo-oneclick-upgrade-root .oou-toast.oou-place-above {
+  bottom: calc(100% + 8px);
+  top: auto;
+}
+
+#odoo-oneclick-upgrade-root .oou-toast.oou-place-below {
+  top: calc(100% + 8px);
+  bottom: auto;
+}
+
+#odoo-oneclick-upgrade-root .oou-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#odoo-oneclick-upgrade-root .oou-toast.is-error {
+  background: #8b1e1e;
+}
+
+#odoo-oneclick-upgrade-root .oou-toast.is-success {
+  background: #1f6b3a;
+}
+
+#odoo-oneclick-upgrade-root .oou-confirm {
+  position: absolute;
+  right: 0;
+  width: min(320px, calc(100vw - 16px));
+  max-height: min(240px, calc(100vh - 24px));
+  overflow: auto;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  padding: 14px;
+  display: none;
+  z-index: 2;
+}
+
+#odoo-oneclick-upgrade-root .oou-confirm.is-open {
+  display: block;
+}
+
+#odoo-oneclick-upgrade-root .oou-confirm.oou-place-below {
+  top: calc(100% + 8px);
+  bottom: auto;
+}
+
+#odoo-oneclick-upgrade-root .oou-confirm.oou-place-above {
+  bottom: calc(100% + 8px);
+  top: auto;
+}
+
+#odoo-oneclick-upgrade-root .oou-confirm p {
+  margin: 0 0 12px;
+  color: #333;
+}
+
+#odoo-oneclick-upgrade-root .oou-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+#odoo-oneclick-upgrade-root .oou-confirm-actions button {
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+
+#odoo-oneclick-upgrade-root .oou-cancel {
+  background: #ececec;
+  color: #333;
+}
+
+#odoo-oneclick-upgrade-root .oou-ok {
+  background: #714b67;
+  color: #fff;
+}
