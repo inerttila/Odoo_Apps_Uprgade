@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/inerttila/Inerttila/refs/heads/main/logo/inert-logo.jpg" width="32" height="32" align="left" /> Odoo One-Click Upgrade
+# <img src="https://raw.githubusercontent.com/inerttila/Inerttila/refs/heads/main/logo/inert-logo.jpg" alt="Inert" width="48" height="48" /> Odoo One-Click Upgrade
 
 MV3 Chrome extension for Odoo 17 backend pages.
 
